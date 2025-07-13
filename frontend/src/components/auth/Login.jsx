@@ -34,6 +34,7 @@ function UniPlayLogo({ className = "w-12 h-12" }) {
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const { login, loading } = useAuth();
   const navigate = useNavigate();
@@ -53,6 +54,10 @@ function Login() {
     } else {
       setError('Invalid credentials. Please try again.');
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -100,13 +105,24 @@ function Login() {
               <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-blue-400" />
               <input
                 id="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-blue-900 text-lg"
+                className="w-full pl-12 pr-12 py-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-blue-900 text-lg"
                 placeholder="Enter your password"
                 required
               />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600 transition-colors"
+              >
+                {showPassword ? (
+                  <EyeOff className="w-6 h-6" />
+                ) : (
+                  <Eye className="w-6 h-6" />
+                )}
+              </button>
             </div>
           </div>
 
