@@ -209,7 +209,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Sejal Jaswal** - *Full Stack Developer* - [YourGitHub](https://github.com/sejaljaswal)
+- **Sejal Jaswal** - *Full Stack Developer* - [(https://github.com/sejaljaswal)]
 
 ## 🙏 Acknowledgments
 
